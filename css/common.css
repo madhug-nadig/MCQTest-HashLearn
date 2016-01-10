@@ -1,0 +1,103 @@
+@import "compass/css3";
+ul{
+	list-style: none;
+}
+	
+div {
+  margin:0 0 0.75em 0;
+}
+
+.qnum{
+	font-size: 1.7em;
+	text-align:center;
+	font-family: "Roboto Slab", Arial;
+	color: white;
+	font-weight:100;
+	margin-top:4px;
+}
+
+.ques{
+	color:white;
+	font-family: "Roboto Slab", Arial;
+	font-weight: 500;
+	display: block;
+	padding:10px;
+	position: relative;
+	background-color: #27AC49;
+	text-align: center;
+	border-radius: 5px;
+	margin-bottom: 10px; 
+}
+
+.qanda{
+	padding: 10px;
+	margin:30px;
+	border: 2px dashed #007A26;
+	border-radius:10px;
+}
+
+.button{
+	text-decoration:none;
+	display: inline-block;
+	padding: 10px 5px;
+	border: 1px solid #444;
+	background-color: #cccccc;
+	text-align: center;
+	text-transform: uppercase;
+	line-height: 10px;
+	color: #444;
+	font-family: "Roboto Slab";
+	font-weight: bold; 
+	border-radius: 5px; 
+	cursor: pointer;
+	-webkit-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+}
+.button:hover{
+	background-color: #444;
+	color: #fff;
+}
+
+.mcq{
+	position: relative;
+	display: block;
+	margin:50px auto;
+	width: 50%;
+	background-color: #57B959; 
+	border-radius: 5px;
+	padding:10px;
+	border:5px solid #007A26; 
+}     
+
+
+@media screen and (max-width: 768px) {
+    .mcq {
+		width: 90%;
+    }
+}
+
+.optlist{
+	text-decoration:none!important;
+}
+
+
+input[type="radio"] , label {
+    color: white;
+    font-family:"Roboto Slab",Arial, sans-serif;
+    font-size:14px;
+	display: inline;
+	margin-top:5%;
+}
+
+input[type="radio"]  {
+     background-color:white;
+}
+
+input[type="radio"] ,
+input[type="radio"]:checked   {
+  -webkit-transition:background-color 0.4s linear;
+  -o-transition:background-color 0.4s linear;
+  -moz-transition:background-color 0.4s linear;
+  transition:background-color 0.4s linear;
+}

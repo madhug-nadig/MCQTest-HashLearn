@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="css/common.css" />
+<section class="artistinfo">
+	<div class="mcq" ng-model: "questions">
+	  <center><a href = "#details/{{prevItem}}" class = "button">PREV</a>
+	  <a href = "#details/{{nextItem}}" class = "button">NEXT</a></center>
+	  <div class = "qanda">
+		<h3 class = "qnum">QUESTION {{parseInt(whichItem)+1}}</h3>
+		<p class = "ques" math-jax-bind = "questions[whichItem].ques"></p>	  
+		<ul>
+			  <li class= "optlist" ng-repeat="item in questions[whichItem].opts">
+			  <label class="formgroup">
+			  <input type="radio" name = "q"><span math-jax-bind = "item.val"></span>
+			 </label>
+			 </li>
+		</ul>
+	  </div>
+	  <center><a href = "#list" class = "button">List View</a></center>
+    </div>  
+</section>

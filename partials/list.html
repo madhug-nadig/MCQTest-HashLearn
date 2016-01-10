@@ -1,0 +1,18 @@
+<section class="artistpage">
+  <ul class="artistlist">
+    <li class="artist cf" ng-repeat="item in questions">
+	  <div class="mcq">
+	  <a href = "#details/{{questions.indexOf(item)}}" class = "button">Show</a>
+		<p class = "ques" math-jax-bind = "item.ques"></p>	  
+	  <ul>
+      <li class= "optlist" ng-repeat="option in item.opts">
+	  <label class="formgroup">
+      <input type="radio" name = "q"><span math-jax-bind = "option.val"></span>
+      </input>
+     </label>
+	 </li>
+	 </ul>
+     </div>
+	</li>
+  </ul> 	 
+</section>
