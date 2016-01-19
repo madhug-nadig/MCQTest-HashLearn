@@ -3,7 +3,6 @@ var testControllers = angular.module('testControllers', []);
 testControllers.controller('ListController', ['$scope', '$http', function($scope, $http) {
   $http.get('js/data.json').success(function(data) {
     $scope.questions = data;
-    $scope.artistOrder = 'name';
   });
 }]);
 

@@ -7,11 +7,12 @@
 	  <ul>
       <li class= "optlist" ng-repeat="option in item.opts">
 	  <label class="formgroup">
-      <input type="radio" name = "q"><span math-jax-bind = "option.val"></span>
+	  <input type="radio" name = "q" ng-model = "$parent.selopt" value = "{{option.pos}}"><span math-jax-bind = "option.val"></span>
       </input>
      </label>
 	 </li>
 	 </ul>
+	 <p class = "ques">You've chosen: {{selopt}}</p>
      </div>
 	</li>
   </ul> 	 
