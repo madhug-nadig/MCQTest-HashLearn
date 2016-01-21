@@ -6,13 +6,18 @@
 	  <div class = "qanda">
 		<h3 class = "qnum">QUESTION {{parseInt(whichItem)+1}}</h3>
 		<p class = "ques" math-jax-bind = "questions[whichItem].ques"></p>	  
-		<ul>
+		<ul ng-show = "tab!= 1 || selopt==null">
 			  <li class= "optlist" ng-repeat="item in questions[whichItem].opts">
 			  <label class="formgroup">
 			  <input type="radio" name = "q" ng-model = "$parent.selopt" value = "{{item.pos}}"><span math-jax-bind = "item.val"></span>
 			 </label>
 			 </li>
+			 <center><input type="submit" class = "button" ng-click = "tab = 1"></a></center>
+
 		</ul>
+		<div ng-show = "selopt !=null">
+			<p class = "ques" ng-show = "tab === 1">Your answer has been recorded! </p>
+		</div>
 			  <p class = "ques">You've chosen: {{selopt}}</p>
 	  </div>
 	  <center><a href = "#list" class = "button">List View</a></center>
