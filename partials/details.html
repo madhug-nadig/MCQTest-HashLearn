@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="./css/common.css" />
 <section class="artistinfo">
-	<div class="mcq" ng-model: "questions">
+	<div class="mcq" ng-model = "questions">
 	  <center><a href = "#details/{{prevItem}}" class = "button">PREV</a>
 	  <a href = "#details/{{nextItem}}" class = "button">NEXT</a></center>
 	  <div class = "qanda">
@@ -12,7 +12,7 @@
 			  <input type="radio" name = "q" ng-model = "$parent.selopt" value = "{{item.pos}}"><span math-jax-bind = "item.val"></span>
 			 </label>
 			 </li>
-			 <center><input type="submit" class = "button" ng-click = "tab = 1"></a></center>
+			 <center><button class = "button" ng-click = "tab = 1" >Submit</button></center>
 
 		</ul>
 		<div ng-show = "selopt !=null">
@@ -20,6 +20,5 @@
 		</div>
 			  <p class = "ques">You've chosen: {{selopt}}</p>
 	  </div>
-	  <center><a href = "#list" class = "button">List View</a></center>
     </div>  
 </section>
