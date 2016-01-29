@@ -1,0 +1,116 @@
+ul{
+	margin-bottom: 40px;
+}
+
+
+h1{
+	text-align: center;
+	font-family: "Roboto Slab", Arial;
+	font-weight: 100;
+	font-size: 30px;
+}
+
+/** form field **/
+ul li{
+  display: block;
+  margin: 30px;
+  font-family:"Roboto Slab", Arial;
+  background: #fff;
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  width: 71%;
+  margin-left :14.5%;
+  margin-top: 1%;
+  margin-bottom: 0px;
+  text-decoration: none!important;
+}
+
+
+.col-2, .col-3, .col-4 { 
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.col-submit {
+  text-align: center;
+  padding: 20px;
+}
+
+p.kindone{
+	font-family: "Roboto Slab", Arial;
+	font-weight: 400;
+	text-align:center;
+	color: #2f4f4f;
+}
+
+a {
+  height: 35px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Roboto Condensed", Arial;
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+  text-decoration: none;
+  color: initial;
+  padding: 0px;
+  padding-top:10px;
+  display: block;
+  text-align:center;
+  width:20%;
+  margin:0 auto;		
+}
+
+.back{
+	color:black;
+	font-family: "Roboto Condensed", Arial;
+	border: 2px solid black;
+	height:25px;
+	width:15%;
+	margin-top: 10px!important;
+}
+
+.back:hover{
+	color:white;
+	height:25px;
+	width:15%;
+	background-color:black;
+}
+
+a.submitbtn {
+  background-image: -moz-linear-gradient(#97c16b, #8ab959);
+  background-image: -webkit-linear-gradient(#97c16b, #8ab959);
+  background-image: linear-gradient(#97c16b, #8ab959);
+  border-bottom: 1px solid #648c3a;
+  cursor: pointer;
+  color: #fff;
+    margin-top: 70px!important;
+}
+a.submitbtn:hover {
+  background-image: -moz-linear-gradient(#8ab959, #7eaf4a);
+  background-image: -webkit-linear-gradient(#8ab959, #7eaf4a);
+  background-image: linear-gradient(#8ab959, #7eaf4a);
+}
+a.submitbtn:active {
+  border-bottom: 0;
+  background-image: -moz-linear-gradient(#7eaf4a, #8ab959);
+  background-image: -webkit-linear-gradient(#7eaf4a, #8ab959);
+  background-image: linear-gradient(#7eaf4a, #8ab959);
+  -moz-box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.3);
+}
+
+
+@media(min-width: 850px){
+  .col-submit { display: block; }
+  
+  .col-2, .col-3, .col-4 { box-shadow: 1px 1px #e4e4e4; border: none; }
+  
+  .col-2 { width: 50% }
+  .col-3 { width: 33.3333333333% }
+  .col-4 { width: 25% }
+  
+  .col-submit button { width: 30%; margin: 0 auto; }
+}
+

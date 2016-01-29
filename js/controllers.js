@@ -1,32 +1,35 @@
 var testControllers = angular.module('testControllers', []);
 
-testControllers.controller('ListController', ['$scope', '$http', function($scope, $http) {
-  $http.get('js/data.json').success(function(data) {
-    $scope.questions = data;
+testControllers.controller('MathController', ['$scope', '$http', function($scope, $http) {
+  $http.get('js/data/cat-math.json').success(function(data) {
+    $scope.categories = data;
+
+  });
+}]);
+
+testControllers.controller('ChemController', ['$scope', '$http', function($scope, $http) {
+  $http.get('js/data/cat-chem.json').success(function(data) {
+    $scope.categories = data;
+
+  });
+}]);
+
+testControllers.controller('PhyController', ['$scope', '$http', function($scope, $http) {
+  $http.get('js/data/cat-phy.json').success(function(data) {
+    $scope.categories = data;
+
   });
 }]);
 
 testControllers.controller('DetailsController', ['$scope', '$http','$routeParams' ,function($scope, $http, $routeParams) {
-  $http.get('js/data.json').success(function(data) {
-    $scope.questions = data;
-    $scope.whichItem = $routeParams.itemId;
+  $http.get('http://sec.geazy.com/ws/getQuestion.php?apikey=12345&catid=91&sig=ZYRFa10v%2BaMUY%2F%2BITSAgiGZWfIA%3D').success(function(data) {
+  $scope.questions = data;
+  console.log(data);
+  $scope.whichItem = $routeParams.itemId;
 	$scope.parseInt = parseInt;
-	if($routeParams.itemId > 0){
-		$scope.prevItem = Number($routeParams.itemId) - 1;
-	}
-	else{
-		$scope.prevItem = $scope.questions.length - 1;
-	}
-	
-	
-	if($routeParams.itemId < $scope.questions.length-1){
-		$scope.nextItem = Number($routeParams.itemId) + 1;
-	}
-	else{
-		$scope.nextItem = 0;
-	}
   });
 }]);
+
 
 testControllers.directive('mathJaxBind', function() {
   var refresh = function(element) {
