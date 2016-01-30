@@ -21,15 +21,35 @@ testControllers.controller('PhyController', ['$scope', '$http', function($scope,
   });
 }]);
 
-testControllers.controller('DetailsController', ['$scope', '$http','$routeParams' ,function($scope, $http, $routeParams) {
+testControllers.controller('DetailsController', ['$scope', '$http','$routeParams', '$timeout' ,function($scope, $http, $routeParams, $timeout) {
   $http.get('http://sec.geazy.com/ws/getQuestion.php?apikey=12345&catid=91&sig=ZYRFa10v%2BaMUY%2F%2BITSAgiGZWfIA%3D').success(function(data) {
   $scope.questions = data;
   console.log(data);
   $scope.whichItem = $routeParams.itemId;
 	$scope.parseInt = parseInt;
   });
+  $scope.counter = 2500;
+  $scope.onTimeout = function(){
+  if (--$scope.counter > 0) {
+    $timeout($scope.onTimeout, 1000);
+  } else {
+      alert('Submitted!');
+  }
+}
+    $timeout($scope.onTimeout, 1000);
 }]);
 
+
+testControllers.filter('formatTimer', function() {
+  return function(input)
+    {
+        function z(n) {return (n<10? '0' : '') + n;}
+        var seconds = input % 60;
+        var minutes = Math.floor(input / 60);
+        var hours = Math.floor(minutes / 60);
+        return (z(hours) +':'+z(minutes)+':'+z(seconds));
+    };
+});
 
 testControllers.directive('mathJaxBind', function() {
   var refresh = function(element) {

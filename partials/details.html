@@ -3,6 +3,7 @@
 	<div class="mcq" ng-model = "questions">
 	  <center><a href = "#details/{{prevItem}}" class = "button">PREV</a>
 	  <a href = "#details/{{nextItem}}" class = "button">NEXT</a></center>
+	  <h3 class = "qnum">{{counter|formatTimer}}</h3> 
 	  <div class = "qanda">
 		<h3 class = "qnum">QUESTION {{parseInt(whichItem)+1}}</h3>
 		<p class = "ques" math-jax-bind = "questions[whichItem].ques"></p>	  
@@ -13,7 +14,6 @@
 			 </label>
 			 </li>
 			 <center><button class = "button" ng-click = "tab = 1" >Submit</button></center>
-
 		</ul>
 		<div ng-show = "selopt !=null">
 			<p class = "ques" ng-show = "tab === 1">Your answer has been recorded! </p>
