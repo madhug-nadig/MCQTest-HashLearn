@@ -1,18 +1,14 @@
 <section class="">
-
 	<link rel="stylesheet" href="css/styles.css" />
-	
 	<h1>YOU MUST CHOOSE AT LEAST 5 TOPICS</h1>
 	<p class = "kindone">You have selected: {{ a =(categories | filter:{checked: true }).length }} topics</p>
-
 	<ul class="a">
 	<li ng-repeat="item in categories" >
 	  <input type="checkbox" class="chk" ng-model = "item.checked">{{item.info.ct}}
       </input>
 	  </li>
 	 </ul>
-	<a ng-show = "a>4" href = "#details/1" class = "submitbtn">Start the test</a>
+	<a ng-show = "a>4" href = "#details/1" class = "submitbtn" ng-click = "al()">Start the test</a>
 	<a href = "#subjects" class = "back" style = "margin:0px auto;">Back</a>
 	<p style = "margin-top: 100px;"></p>
-	
 </section>

@@ -1,34 +1,43 @@
 var testControllers = angular.module('testControllers', []);
 
-testControllers.controller('MathController', ['$scope', '$http', function($scope, $http) {
+testControllers.controller('MathController', ['$scope', '$http','$rootScope' ,function($scope, $http, $rootScope) {
   $http.get('js/data/cat-math.json').success(function(data) {
     $scope.categories = data;
-
-  });
+   });
+    $scope.a = 0
+    $rootScope.cat = $scope.a;
+    $scope.$watch('a',function () {
+    $rootScope.cat = $scope.a;
+    //called here your factory SERVICE which hold this chnages  valued
+    //You can use this SERVICE to accec updated value.
+   });
+   $scope.al = function(){
+      alert($scope.a);
+   };
 }]);
 
 testControllers.controller('ChemController', ['$scope', '$http', function($scope, $http) {
   $http.get('js/data/cat-chem.json').success(function(data) {
     $scope.categories = data;
-
   });
 }]);
 
 testControllers.controller('PhyController', ['$scope', '$http', function($scope, $http) {
   $http.get('js/data/cat-phy.json').success(function(data) {
     $scope.categories = data;
-
   });
 }]);
 
-testControllers.controller('DetailsController', ['$scope', '$http','$routeParams', '$timeout' ,function($scope, $http, $routeParams, $timeout) {
-  $http.get('http://sec.geazy.com/ws/getQuestion.php?apikey=12345&catid=91&sig=ZYRFa10v%2BaMUY%2F%2BITSAgiGZWfIA%3D').success(function(data) {
+testControllers.controller('DetailsController', ['$scope', '$http','$routeParams', '$timeout','$rootScope' ,function($scope, $http, $routeParams, $timeout, $rootScope) {
+  $http.get('http://staging-now.hashlearn.com/v1/content/practice/categoryQuestions/?catid=91').success(function(data) {
   $scope.questions = data;
   console.log(data);
   $scope.whichItem = $routeParams.itemId;
 	$scope.parseInt = parseInt;
   });
-  $scope.counter = 2500;
+
+  $scope.catno = $rootScope.cat;
+  $scope.counter = $scope.catno * 9 * 60;
   $scope.onTimeout = function(){
   if (--$scope.counter > 0) {
     $timeout($scope.onTimeout, 1000);
@@ -45,8 +54,15 @@ testControllers.filter('formatTimer', function() {
     {
         function z(n) {return (n<10? '0' : '') + n;}
         var seconds = input % 60;
-        var minutes = Math.floor(input / 60);
-        var hours = Math.floor(minutes / 60);
+        var minutes;
+        var forh = Math.floor(input / 60);
+        if(input /60 > 60){
+            minutes = Math.floor(input / 60)%60;
+        }
+        else{
+            minutes = Math.floor(input / 60);
+        }
+        var hours = Math.floor(forh / 60);
         return (z(hours) +':'+z(minutes)+':'+z(seconds));
     };
 });
