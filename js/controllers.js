@@ -14,7 +14,7 @@ testControllers.controller('MathController', ['$scope', '$http','$rootScope' ,fu
    };
 }]);
 
-testControllers.controller('ChemController', ['$scope', '$http', function($scope, $http) {
+testControllers.controller('ChemController', ['$scope', '$http', '$rootScope',function($scope, $http, $rootScope) {
   $http.get('js/data/cat-chem.json').success(function(data) {
     $scope.categories = data;
   });
@@ -30,7 +30,7 @@ testControllers.controller('ChemController', ['$scope', '$http', function($scope
 
 }]);
 
-testControllers.controller('PhyController', ['$scope', '$http', function($scope, $http) {
+testControllers.controller('PhyController', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
   $http.get('js/data/cat-phy.json').success(function(data) {
     $scope.categories = data;
   });

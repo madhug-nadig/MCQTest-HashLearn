@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="./css/common.css" />
 <section class="artistinfo">
 	<div class="mcq" ng-model = "questions">
-	  <center><a href = "#details/{{prevItem}}" class = "button">PREV</a>
+	  <center>
 	  <a href = "#details/{{nextItem}}" class = "button">NEXT</a></center>
 	  <h3 class = "qnum">{{counter|formatTimer}}</h3> 
 	  <div class = "qanda">
-		<h3 class = "qnum">QUESTION {{parseInt(whichItem)+1}}</h3>
+		<h3 class = "qnum">QUESTION {{parseInt(whichItem)}}</h3>
 		<p class = "ques" math-jax-bind = "questions[whichItem].text.t"></p>	  
 		<ul ng-show = "tab!= 1 || selopt==null">
 			  <li class= "optlist">
