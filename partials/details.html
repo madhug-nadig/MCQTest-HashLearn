@@ -19,7 +19,7 @@
 			 <input type="radio" name = "q" ng-model = "$parent.selopt" value = "D"><span math-jax-bind = "questions[whichItem].text.opts.optD"></span>
 			 </label>
 			 </li>
-			 <center><button class = "button" ng-click = "tab = 1" >Submit</button></center>
+			 <center><button class = "button" ng-click = "tab = 1; validate(selopt, whichItem)" >Submit</button></center>
 		</ul>
 		<div ng-show = "selopt !=null">
 			<p class = "ques" ng-show = "tab === 1">Your answer has been recorded! </p>

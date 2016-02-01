@@ -47,7 +47,7 @@ testControllers.controller('PhyController', ['$scope', '$http', '$rootScope', fu
 }]);
 
 testControllers.controller('DetailsController', ['$scope', '$http','$routeParams', '$timeout','$rootScope' ,function($scope, $http, $routeParams, $timeout, $rootScope) {
-  $http.get('http://staging-now.hashlearn.com/v1/content/practice/categoryQuestions/?catid=91').success(function(data) {
+  $http.get('http://staging-now.hashlearn.com/v1/content/practice/tutor/categoryQuestions/?catid=91').success(function(data) {
   $scope.questions = data;
   $scope.questions = $scope.questions.data;
   //$scope.question = $scope.randomizeThree($scope.questions);
@@ -86,6 +86,15 @@ testControllers.controller('DetailsController', ['$scope', '$http','$routeParams
 
   });
 
+
+  $scope.validate = function(pos, index){
+    if(pos == $scope.questions[index].text.opts.answer){ 
+      alert('correct');
+    }
+    else{
+      alert("wrong!");
+    }
+  };
 
   $scope.catno = $rootScope.cat;
   $scope.counter = $scope.catno * 9 * 60;
