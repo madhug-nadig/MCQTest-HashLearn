@@ -83,11 +83,15 @@ div {
 
 
 input[type="radio"] , label {
-    color: white;
+    color: white!important;
     font-family:"Roboto Slab",Arial, sans-serif;
     font-size:14px;
 	display: inline;
 	margin-top:5%;
+}
+
+.MathJax_Display{
+	color:white;
 }
 
 input[type="radio"]  {
