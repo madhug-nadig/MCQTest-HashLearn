@@ -6,11 +6,17 @@
 	  <h3 class = "qnum">{{counter|formatTimer}}</h3> 
 	  <div class = "qanda">
 		<h3 class = "qnum">QUESTION {{parseInt(whichItem)+1}}</h3>
-		<p class = "ques" math-jax-bind = "questions[whichItem].ques"></p>	  
+		<p class = "ques" math-jax-bind = "questions[whichItem].text.t"></p>	  
 		<ul ng-show = "tab!= 1 || selopt==null">
-			  <li class= "optlist" ng-repeat="item in questions[whichItem].opts">
-			  <label class="formgroup">
-			  <input type="radio" name = "q" ng-model = "$parent.selopt" value = "{{item.pos}}"><span math-jax-bind = "item.val"></span>
+			  <li class= "optlist">
+			  <label class="formgroup" style = "color:white; fill: white;">
+			  <input type="radio" name = "q" ng-model = "$parent.selopt" value = "A"><span math-jax-bind = "questions[whichItem].text.opts.optA"></span>
+			 </label>
+			 <input type="radio" name = "q" ng-model = "$parent.selopt" value = "B"><span math-jax-bind = "questions[whichItem].text.opts.optB"></span>
+			 </label>
+			 <input type="radio" name = "q" ng-model = "$parent.selopt" value = "C"><span math-jax-bind = "questions[whichItem].text.opts.optC"></span>
+			 </label>
+			 <input type="radio" name = "q" ng-model = "$parent.selopt" value = "D"><span math-jax-bind = "questions[whichItem].text.opts.optD"></span>
 			 </label>
 			 </li>
 			 <center><button class = "button" ng-click = "tab = 1" >Submit</button></center>

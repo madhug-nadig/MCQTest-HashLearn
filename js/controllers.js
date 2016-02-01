@@ -8,8 +8,6 @@ testControllers.controller('MathController', ['$scope', '$http','$rootScope' ,fu
     $rootScope.cat = $scope.a;
     $scope.$watch('a',function () {
     $rootScope.cat = $scope.a;
-    //called here your factory SERVICE which hold this chnages  valued
-    //You can use this SERVICE to accec updated value.
    });
    $scope.al = function(){
       alert($scope.a);
@@ -20,21 +18,74 @@ testControllers.controller('ChemController', ['$scope', '$http', function($scope
   $http.get('js/data/cat-chem.json').success(function(data) {
     $scope.categories = data;
   });
+
+   $scope.a = 0
+    $rootScope.cat = $scope.a;
+    $scope.$watch('a',function () {
+    $rootScope.cat = $scope.a;
+   });
+   $scope.al = function(){
+      alert($scope.a);
+   };
+
 }]);
 
 testControllers.controller('PhyController', ['$scope', '$http', function($scope, $http) {
   $http.get('js/data/cat-phy.json').success(function(data) {
     $scope.categories = data;
   });
+
+   $scope.a = 0
+    $rootScope.cat = $scope.a;
+    $scope.$watch('a',function () {
+    $rootScope.cat = $scope.a;   
+   });
+   $scope.al = function(){
+      alert($scope.a);
+   };
+
 }]);
 
 testControllers.controller('DetailsController', ['$scope', '$http','$routeParams', '$timeout','$rootScope' ,function($scope, $http, $routeParams, $timeout, $rootScope) {
   $http.get('http://staging-now.hashlearn.com/v1/content/practice/categoryQuestions/?catid=91').success(function(data) {
   $scope.questions = data;
-  console.log(data);
+  $scope.questions = $scope.questions.data;
+  //$scope.question = $scope.randomizeThree($scope.questions);
+  console.log($scope.questions);
   $scope.whichItem = $routeParams.itemId;
 	$scope.parseInt = parseInt;
+  
+  $scope.randomizeThree = function(arr) {
+            alert("Hello");
+
+    var result = new Array(3),
+        len = arr.length,
+        taken = new Array(len);
+        n = 3;
+    while (n--) {
+        var x = Math.floor(Math.random() * len);
+        result[n] = arr[x in taken ? taken[x] : x];
+        taken[x] = --len;
+    }
+    return result;
+ };
+
+ if($routeParams.itemId > 0){
+    $scope.prevItem = Number($routeParams.itemId) - 1;
+  }
+  else{
+    $scope.prevItem = $scope.questions.length - 1;
+  }
+  
+  if($routeParams.itemId < $scope.questions.length-1){
+    $scope.nextItem = Number($routeParams.itemId) + 1;
+  }
+  else{
+    $scope.nextItem = 0;
+  }
+
   });
+
 
   $scope.catno = $rootScope.cat;
   $scope.counter = $scope.catno * 9 * 60;
